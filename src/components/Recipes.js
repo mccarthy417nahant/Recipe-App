@@ -2,10 +2,10 @@ import React from 'react';
 
 import {Link} from "react-router-dom";
 
-const Recipes = ({recipes = []}) => (
+const Recipes = ({props = []}) => (
   <div className="container">
     <div className="row">
-    { recipes.recipes.map((recipe) => {
+    { props.recipes.map((recipe) => {
       return (
         <div key={recipe.title} className="col-md-4" style={{ marginBottom:"2rem"}}>
           <div className="recipes__box">
