@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from "react-router-dom";
 
-const Recipes = ({props = []}) => (
+const Recipes = props => (
   <div className="container">
     <div className="row">
     { props.recipes.map((recipe) => {
