@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const API_KEY = "bc9e815c4a262286447098327ef72b95";
 
 class Recipe extends React.Component {
-  state = {
+  this.state = {
     activeRecipe: []
   }
   componentDidMount = async () => {
