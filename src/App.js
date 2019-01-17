@@ -29,7 +29,6 @@ class App extends Component {
     localStorage.setItem("recipes", recipes)
   }
   render() {
-    debugger;
     return (
       <div className="App">
         <header className="App-header">
