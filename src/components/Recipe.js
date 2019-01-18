@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 const API_KEY = process.env.API_KEY;
 
 class Recipe extends React.Component {
-  state = {
+  constructor(props) {
+    super(props);
+
+    this.state = {
     activeRecipe: []
+    };
   }
-  componentDidMount = async () => {
+  componentWillMount = async () => {
     const title = this.props.location.state.recipe;
     const req = await fetch(`https://cors-anywhere.herokuapp.com/https://www.food2fork.com/api/search?key=${API_KEY}&q=${title}`);
 
