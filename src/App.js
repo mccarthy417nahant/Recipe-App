@@ -29,13 +29,17 @@ class App extends Component {
     localStorage.setItem("recipes", recipes)
   }
   render() {
+    let recipes
+    if (this.state.recipes) {
+       recipes = <Recipes recipes={this.state.recipes}/>
+    }
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Recipe Search</h1>
         </header>
         <Form getRecipe={this.getRecipe}/>
-        <Recipes recipes={this.state.recipes}/>
+        {recipes}
       </div>
     );
   }
