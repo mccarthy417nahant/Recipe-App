@@ -4,10 +4,10 @@ import './App.css';
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 
-const API_KEY = "bc9e815c4a262286447098327ef72b95";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
-  state ={
+  state = {
     recipes:[]
   }
   getRecipe = async (e) => {
@@ -17,7 +17,7 @@ class App extends Component {
 
     const data = await api_call.json();
     this.setState({ recipes: data.recipes});
-    console.log(this.state.recipes)
+    // console.log(this.state.recipes)
   }
   componentDidMount = () => {
     const json = localStorage.getItem("recipes");
@@ -43,6 +43,17 @@ class App extends Component {
       </div>
     );
   }
+  // render() {
+  //   return (
+  //     <div className="App">
+  //       <header className="App-header">
+  //         <h1 className="App-title">Recipe Search</h1>
+  //       </header>
+  //       <Form getRecipe={this.getRecipe}/>
+  //       <Recipes recipes={this.state.recipes}/>
+  //     </div>
+  //   );
+  // }
 }
 
 export default App;

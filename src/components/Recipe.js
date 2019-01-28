@@ -2,19 +2,15 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class Recipe extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  state = {
     activeRecipe: []
-    };
   }
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const title = this.props.location.state.recipe;
-    const req = await fetch(`https://cors-anywhere.herokuapp.com/https://www.food2fork.com/api/search?key=${API_KEY}&q=${title}`);
+    const req = await fetch(`https://cors-anywhere.herokuapp.com/http://www.food2fork.com/api/search?key=${API_KEY}&q=${title}`);
 
     const res = await req.json();
     this.setState({activeRecipe: res.recipes[0]});
@@ -26,7 +22,7 @@ class Recipe extends React.Component {
         { this.state.activeRecipe.length !== 0 &&
           <div className="active-recipe">
             <img className="active-recipe__img" src={recipe.image_url} alt={recipe.title}/>
-            <h3 className="active-recipe__title">{recipe.title}</h3>
+            <h3 className="active-recipe__title">{recipe.title} </h3>
             <h4 className="active-recipe__publisher">
               Publisher: <span>{recipe.publisher}</span>
             </h4>
@@ -41,6 +37,6 @@ class Recipe extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default Recipe;
